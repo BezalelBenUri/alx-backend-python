@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 """
-Task 11's module.
+Task 12's module.
 """
-from typing import Any, Mapping, Union, TypeVar
+from typing import List, Tuple
 
 
-T = TypeVar('T')
-Res = Union[Any, T]
-Def = Union[T, None]
-
-
-def safely_get_value(dct: Mapping, key: Any, default: Def = None) -> Res:
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
     """
-    Retrieves a value from a dict using a given key.
+    Creates multiple copies of items in a tuple.
     """
-    if key in dct:
-        return dct[key]
-    else:
-        return default
+    zoomed_in: List = [
+        item for item in lst
+        for i in range(int(factor))
+    ]
+    return zoomed_in
+
+
+array = (12, 72, 91)
+
+zoom_2x = zoom_array(array)
+
+zoom_3x = zoom_array(array, 3)
